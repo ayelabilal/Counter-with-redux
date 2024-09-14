@@ -8,20 +8,21 @@ const counterSlice = createSlice({
     name :"counter",
     initialState,
     reducers:{
-        addCounter:(state,actions)=>{
-            state.counter = ++state.counter
-            console.log("add");
+        addCounter:(state)=>{
+            state.counter++;
+            // console.log("add");
             
         },
-        minusCounter:(state,actions)=>{
-            state.counter = --state.counter
-            console.log("Less");
+        minusCounter:(state)=>{
+           if (state.counter >0 ){
+            state.counter--;
+           }
             
-        }
-    }
-})
+        },
+    },
+});
 
 const {actions,reducer} = counterSlice
 
-export const {addCounter , minusCounter} = actions
-export default reducer
+export const {addCounter , minusCounter} = actions;
+export default reducer;
